@@ -7,8 +7,8 @@ class Config:
     PROJECT_VERSION: str = "1.0.0"
     PROJECT_DESCRIPTION: str = "AI-powered helpdesk agent for internal company knowledge"
 
-    # DOC_SET_NAME: str = "italian_monetary_fund" 
-    DOC_SET_NAME: str = "sample_dataset" 
+    DOC_SET_NAME: str = "italian_monetary_fund" 
+    # DOC_SET_NAME: str = "sample_dataset" 
     CHROMA_DB_PATH: str = f"chroma/{DOC_SET_NAME}_chroma_db"
     DOC_DATASET_PATH: str = f"data/{DOC_SET_NAME}"
     PROCESSED_HASHES_FILE: str = DOC_DATASET_PATH + "/processed_hashes.json"
@@ -20,5 +20,7 @@ class Config:
     SLACK_BOT_TOKEN: str = os.getenv("SLACK_BOT_TOKEN", "")
     SLACK_SIGNING_SECRET: str = os.getenv("SLACK_SIGNING_SECRET", "")
     SLACK_BOT_USER_ID: str = os.getenv("SLACK_BOT_USER_ID", "U0XXXXXXX")
+    HF_AUTH_TOKEN: str = os.getenv("HF_AUTH_TOKEN", "")
+    SKIP_RERANKING: bool = os.getenv("SKIP_RERANKING", "False").lower() == "true"
 
 config = Config()

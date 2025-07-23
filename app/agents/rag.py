@@ -18,7 +18,7 @@ def load_reranker_model():
     global reranker_model
     if reranker_model is None:
         logger.info(f"Loading {config.RERANKER_MODEL} model...")
-        reranker_model = CrossEncoder(config.RERANKER_MODEL)
+        reranker_model = CrossEncoder(config.RERANKER_MODEL, token=config.HF_AUTH_TOKEN if config.HF_AUTH_TOKEN else None)
         logger.info(f"{config.RERANKER_MODEL} model loaded.")
     return reranker_model
 
@@ -56,44 +56,50 @@ def get_rag_chain():
     
     llm = get_chat_model()
     
-    # Load the reranker model
-    reranker = load_reranker_model()
-
     def retrieve_and_rerank(question: str) -> List[Tuple[Document, float]]:
         """
-        Retrieves and reranks documents.
+        Retrieves and optionally reranks documents based on the SKIP_RERANKING flag.
         """
         start_time = time.time()
-        # 1. Initial retrieval of a larger set (e.g., 20 documents)
-        initial_docs_with_scores = vectorstore.similarity_search_with_score(question, k=20)
-        logger.info(f"Initial Retrieval time: {time.time() - start_time:.4f} seconds")
 
-        initial_docs = [doc for doc, _ in initial_docs_with_scores]
+        if config.SKIP_RERANKING:
+            # Skip reranking, retrieve top 5 directly
+            top_docs_with_scores = vectorstore.similarity_search_with_score(question, k=5)
+            logger.info(f"Retrieval (no reranking) time: {time.time() - start_time:.4f} seconds")
+            for doc, score in top_docs_with_scores:
+                print(f"Source: {doc.metadata.get('source', 'N/A')}, Score: {score:.4f}")
+            return top_docs_with_scores
+        else:
+            # Load the reranker model
+            reranker = load_reranker_model()
+            # 1. Initial retrieval of a larger set (e.g., 20 documents)
+            initial_docs_with_scores = vectorstore.similarity_search_with_score(question, k=20)
+            logger.info(f"Initial Retrieval time: {time.time() - start_time:.4f} seconds")
 
-        # Prepare pairs for reranking: (query, document_content)
-        sentence_pairs = [[question, doc.page_content] for doc in initial_docs]
+            initial_docs = [doc for doc, _ in initial_docs_with_scores]
 
-        # 2. Rerank the initial set
-        # The reranker returns scores for each pair
-        rerank_scores = reranker.predict(sentence_pairs)
+            # Prepare pairs for reranking: (query, document_content)
+            sentence_pairs = [[question, doc.page_content] for doc in initial_docs]
 
-        # Combine documents with their rerank scores
-        docs_with_rerank_scores = sorted(
-            zip(initial_docs, rerank_scores),
-            key=lambda x: x[1],
-            reverse=True
-        )
+            # 2. Rerank the initial set
+            # The reranker returns scores for each pair
+            rerank_scores = reranker.predict(sentence_pairs)
 
-        # Select the top N documents after reranking (e.g., top 5)
-        top_n_reranked_docs_with_scores = docs_with_rerank_scores[:5]
+            # Combine documents with their rerank scores
+            docs_with_rerank_scores = sorted(
+                zip(initial_docs, rerank_scores),
+                key=lambda x: x[1],
+                reverse=True
+            )
 
-        logger.info(f"Retrieval and Reranking time: {time.time() - start_time:.4f} seconds")
-        print("\n--- Reranked Documents with Scores ---")
-        for doc, score in top_n_reranked_docs_with_scores:
-            print(f"Source: {doc.metadata.get('source', 'N/A')}, Rerank Score: {score:.4f}")
-        print("--- End Reranked Documents with Scores ---\n")
+            # Select the top N documents after reranking (e.g., top 5)
+            top_n_reranked_docs_with_scores = docs_with_rerank_scores[:5]
 
-        return top_n_reranked_docs_with_scores
+            logger.info(f"Retrieval and Reranking time: {time.time() - start_time:.4f} seconds")
+            for doc, score in top_n_reranked_docs_with_scores:
+                print(f"Source: {doc.metadata.get('source', 'N/A')}, Rerank Score: {score:.4f}")
+
+            return top_n_reranked_docs_with_scores
 
     rag_chain = (
         RunnablePassthrough.assign(
