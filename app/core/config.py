@@ -23,4 +23,7 @@ class Config:
     HF_AUTH_TOKEN: str = os.getenv("HF_AUTH_TOKEN", "")
     SKIP_RERANKING: bool = os.getenv("SKIP_RERANKING", "False").lower() == "true"
 
+    TOP_K_NO_RERANK: int = 5
+    TOP_K_WITH_RERANK: int = 20
+
 config = Config()

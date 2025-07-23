@@ -22,6 +22,7 @@ def main():
     )
     args = parser.parse_args()
 
+    # The rag_pipeline now expects a dictionary with a "question" key
     answer = rag_pipeline(args.query)
 
     print("Query:")

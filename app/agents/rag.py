@@ -64,7 +64,7 @@ def get_rag_chain():
 
         if config.SKIP_RERANKING:
             # Skip reranking, retrieve top 5 directly
-            top_docs_with_scores = vectorstore.similarity_search_with_score(question, k=5)
+            top_docs_with_scores = vectorstore.similarity_search_with_score(question, k=config.TOP_K_NO_RERANK)
             logger.info(f"Retrieval (no reranking) time: {time.time() - start_time:.4f} seconds")
             for doc, score in top_docs_with_scores:
                 print(f"Source: {doc.metadata.get('source', 'N/A')}, Score: {score:.4f}")
@@ -73,7 +73,7 @@ def get_rag_chain():
             # Load the reranker model
             reranker = load_reranker_model()
             # 1. Initial retrieval of a larger set (e.g., 20 documents)
-            initial_docs_with_scores = vectorstore.similarity_search_with_score(question, k=20)
+            initial_docs_with_scores = vectorstore.similarity_search_with_score(question, k=config.TOP_K_WITH_RERANK)
             logger.info(f"Initial Retrieval time: {time.time() - start_time:.4f} seconds")
 
             initial_docs = [doc for doc, _ in initial_docs_with_scores]
@@ -101,28 +101,52 @@ def get_rag_chain():
 
             return top_n_reranked_docs_with_scores
 
-    rag_chain = (
+    retriever = RunnableLambda(retrieve_and_rerank)
+
+    rag_chain_from_docs = (
         RunnablePassthrough.assign(
-            context=(lambda x: x["question"]) | RunnableLambda(retrieve_and_rerank) | format_docs_with_scores
+            context=(lambda x: format_docs_with_scores(x["retrieved_docs"]))
         )
         | prompt
-        # | (lambda x: print(f"--- Final Prompt ---\n{x.messages}\n--- End Prompt ---") or x)
         | llm
+    )
+
+    rag_chain = (
+        {
+            "retrieved_docs": retriever,
+            "question": RunnablePassthrough(),
+        }
+        | RunnablePassthrough.assign(answer=rag_chain_from_docs)
     )
     return rag_chain
 
 def rag_pipeline(query: str) -> str:
     """
-    Executes the RAG pipeline for a given query.
+    Executes the RAG pipeline for a given query and returns the answer with groundings.
 
     Args:
         query: The user's query.
 
     Returns:
-        The generated answer.
+        A formatted string containing the generated answer and the source documents.
     """
     start_time = time.time()
     rag_chain = get_rag_chain()
-    result = rag_chain.invoke({"question": query})
+    result = rag_chain.invoke(query)
     logger.info(f"Total RAG pipeline time: {time.time() - start_time:.4f} seconds")
-    return result.content
+    
+    answer = result["answer"].content
+    
+    retrieved_docs = result.get('retrieved_docs', [])
+
+    groundings = []
+    if retrieved_docs:
+        for doc, _ in retrieved_docs:
+            source = doc.metadata.get('source', 'N/A')
+            groundings.append(f"- {source}")
+    
+    # Use set to get unique sources and sort them
+    groundings_str = "\n".join(sorted(list(set(groundings))))
+
+    final_output = f"{answer}\n\n---\nGroundings:\n{groundings_str}"
+    return final_output
