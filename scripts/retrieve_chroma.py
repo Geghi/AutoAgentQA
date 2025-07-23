@@ -17,7 +17,7 @@ def retrieve_chroma_elements(filter_query: Optional[str] = None) -> List[Documen
         A list of Document objects.
     """
     try:
-        db = Chroma(persist_directory="chroma")
+        db = Chroma(persist_directory="chroma/chroma")
         results = db.get()
         documents = [Document(page_content=doc, metadata={}) for doc in results['documents']]
         if filter_query:
