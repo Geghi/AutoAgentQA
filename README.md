@@ -39,7 +39,6 @@ This solution reduces dependency on human support teams for repetitive questions
 - [x] Split documents into chunks
 - [x] Generate embeddings for document chunks
 - [x] Build/rebuild Chroma index
-- [ ] Allow users to add new documents
  
 ### RAG-based Question Answering
 - [x] Implement RAG pipeline via LangChain
@@ -47,8 +46,8 @@ This solution reduces dependency on human support teams for repetitive questions
 - [x] Generate answers using OpenAI GPT-4o
 
 ### Slack Integration
-- [ ] Handle Slack events/webhooks
-- [ ] Send answers to Slack
+- [x] Handle Slack events/webhooks
+- [x] Send answers to Slack
 - [ ] Collect user feedback in Slack
 
 ### Human Escalation
@@ -56,17 +55,27 @@ This solution reduces dependency on human support teams for repetitive questions
 - [ ] Implement routing to real human
 
 ### Feedback Collection (Supabase)
-- [ ] Store usage logs
 - [ ] Store feedback
 - [ ] Store and metadata in Supabase
 
+### CMS Backend (Supabase)
+- [ ] Implement login system
+- [ ] Custom chroma DB
+- [ ] View Currently Embedded Documents
+- [ ] Delete Embedded Documents
+- [ ] View Currently Embedded Documents
+- [ ] Allow users to add new documents
+
+### Logging (OpenTelemetry)
+- [ ] Integrate OpenTelemetry
+- [ ] Send Data to Backend for analytics.
 
 
 ## Tech Stack
 
 *   Python – Core logic and integrations
 *   LangChain – Language model orchestration and RAG
-*   OpenAI GPT-4o – Language model for generating responses
+*   OpenAI – Language model for generating responses
 *   Chroma – Local vector database for document retrieval
 *   Supabase – Stores usage logs, feedback, and metadata
 *   Slack API – User interface via internal Slack workspace

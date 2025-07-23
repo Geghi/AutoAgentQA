@@ -1,6 +1,19 @@
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
 class Config:
+    PROJECT_NAME: str = "AutoAgent QA API"
+    PROJECT_VERSION: str = "1.0.0"
+    PROJECT_DESCRIPTION: str = "AI-powered helpdesk agent for internal company knowledge"
+
     CHROMA_DB_PATH: str = "chroma/chroma"
     TEXT_EMBEDDING_MODEL: str = "text-embedding-3-small"
     CHAT_MODEL: str = "gpt-4.1-nano"
+
+    OPENAI_API_KEY: str = os.getenv("OPENAI_API_KEY", "")
+    SLACK_BOT_TOKEN: str = os.getenv("SLACK_BOT_TOKEN", "")
+    SLACK_SIGNING_SECRET: str = os.getenv("SLACK_SIGNING_SECRET", "")
+    SLACK_BOT_USER_ID: str = os.getenv("SLACK_BOT_USER_ID", "U0XXXXXXX")
 
 config = Config()

@@ -9,3 +9,5 @@ langchain-community
 langchain-openai
 langchain-chroma
 tiktoken
+slack_bolt
+slack_sdk

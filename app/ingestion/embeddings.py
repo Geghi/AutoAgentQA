@@ -9,4 +9,4 @@ def get_embedding_function():
     Returns:
         OpenAIEmbeddings: An instance of the OpenAIEmbeddings class.
     """
-    return OpenAIEmbeddings(model=config.TEXT_EMBEDDING_MODEL, api_key=os.getenv("OPENAI_API_KEY"))
+    return OpenAIEmbeddings(model=config.TEXT_EMBEDDING_MODEL, api_key=config.OPENAI_API_KEY)
