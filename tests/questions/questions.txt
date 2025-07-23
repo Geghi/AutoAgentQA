@@ -1,5 +1,8 @@
 ## Questions for AutoAgent QA Testing
 
+python scripts/test_rag.py "What HR paperwork needs to be completed on Day 1?"
+
+
 This file contains a list of questions designed to test the accuracy and relevance of responses from the AutoAgent QA system, based on the provided internal company documents.
 
 **HR Policy - Vacation:**

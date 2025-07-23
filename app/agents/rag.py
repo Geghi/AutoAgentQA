@@ -1,5 +1,7 @@
 from typing import List, Tuple
 from langchain_core.documents import Document
+import time
+from app.utils.logger import logger
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnablePassthrough, RunnableLambda
 from langchain_chroma import Chroma
@@ -45,7 +47,9 @@ def get_rag_chain():
         """
         Retrieves documents with similarity scores.
         """
+        start_time = time.time()
         docs_with_scores = vectorstore.similarity_search_with_score(question)
+        logger.info(f"Retrieval time: {time.time() - start_time:.4f} seconds")
         print("\n--- Retrieved Documents with Scores ---")
         for doc, score in docs_with_scores:
             print(f"Source: {doc.metadata.get('source', 'N/A')}, Score: {score:.4f}")
@@ -57,7 +61,7 @@ def get_rag_chain():
             context=(lambda x: x["question"]) | RunnableLambda(retrieve_and_score) | format_docs_with_scores
         )
         | prompt
-        | (lambda x: print(f"--- Final Prompt ---\n{x.messages}\n--- End Prompt ---") or x)
+        # | (lambda x: print(f"--- Final Prompt ---\n{x.messages}\n--- End Prompt ---") or x)
         | llm
     )
     return rag_chain
@@ -72,6 +76,8 @@ def rag_pipeline(query: str) -> str:
     Returns:
         The generated answer.
     """
+    start_time = time.time()
     rag_chain = get_rag_chain()
     result = rag_chain.invoke({"question": query})
+    logger.info(f"Total RAG pipeline time: {time.time() - start_time:.4f} seconds")
     return result.content
