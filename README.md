@@ -31,7 +31,7 @@ This solution reduces dependency on human support teams for repetitive questions
 
 ## Status
 
-**Progress: 7%**
+**Progress: 20%**
 
 ### Document Ingestion
 - [x] Load documents from local source
@@ -42,9 +42,9 @@ This solution reduces dependency on human support teams for repetitive questions
 - [ ] Allow users to add new documents
  
 ### RAG-based Question Answering
-- [ ] Implement RAG pipeline via LangChain
-- [ ] Retrieve relevant documents from Chroma
-- [ ] Generate answers using OpenAI GPT-4o
+- [x] Implement RAG pipeline via LangChain
+- [x] Retrieve relevant documents from Chroma
+- [x] Generate answers using OpenAI GPT-4o
 
 ### Slack Integration
 - [ ] Handle Slack events/webhooks
