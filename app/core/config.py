@@ -7,12 +7,13 @@ class Config:
     PROJECT_VERSION: str = "1.0.0"
     PROJECT_DESCRIPTION: str = "AI-powered helpdesk agent for internal company knowledge"
 
-    DOC_SET_NAME: str = "world_bank_report" 
+    DOC_SET_NAME: str = "italian_monetary_fund" 
     CHROMA_DB_PATH: str = f"chroma/{DOC_SET_NAME}_chroma_db"
     DOC_DATASET_PATH: str = f"data/{DOC_SET_NAME}"
     PROCESSED_HASHES_FILE: str = DOC_DATASET_PATH + "/processed_hashes.json"
     TEXT_EMBEDDING_MODEL: str = "text-embedding-3-small"
     CHAT_MODEL: str = "gpt-4.1-nano"
+    RERANKER_MODEL: str = "BAAI/bge-reranker-base"
 
     OPENAI_API_KEY: str = os.getenv("OPENAI_API_KEY", "")
     SLACK_BOT_TOKEN: str = os.getenv("SLACK_BOT_TOKEN", "")

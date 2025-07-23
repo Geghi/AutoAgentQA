@@ -7,15 +7,14 @@ from langchain_community.vectorstores import Chroma
 from langchain.embeddings.base import Embeddings
 from app.core.config import config
 
-PROCESSED_HASHES_FILE = "data/processed_hashes.json"
 
 def get_processed_hashes() -> Set[str]:
     """
     Loads the set of processed document hashes from the JSON file.
     """
-    if not os.path.exists(PROCESSED_HASHES_FILE):
+    if not os.path.exists(config.PROCESSED_HASHES_FILE):
         return set()
-    with open(PROCESSED_HASHES_FILE, "r") as f:
+    with open(config.PROCESSED_HASHES_FILE, "r") as f:
         try:
             return set(json.load(f))
         except json.JSONDecodeError:
@@ -25,7 +24,7 @@ def save_processed_hashes(hashes: Set[str]):
     """
     Saves the set of processed hashes to the JSON file.
     """
-    with open(PROCESSED_HASHES_FILE, "w") as f:
+    with open(config.PROCESSED_HASHES_FILE, "w") as f:
         json.dump(list(hashes), f, indent=4)
 
 def filter_new_documents(documents: List[Document]) -> Tuple[List[Document], Set[str]]:
