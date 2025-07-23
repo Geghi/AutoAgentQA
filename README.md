@@ -29,6 +29,39 @@ This solution reduces dependency on human support teams for repetitive questions
 *   **Operations Teams** – To streamline internal process-related inquiries.
 *   **All Employees** – To promote self-service and reduce waiting times.
 
+## Status
+
+**Progress: 7%**
+
+### Document Ingestion
+- [x] Load documents from local source
+- [ ] Load documents from remote sources
+- [x] Split documents into chunks
+- [x] Generate embeddings for document chunks
+- [x] Build/rebuild Chroma index
+- [ ] Allow users to add new documents
+ 
+### RAG-based Question Answering
+- [ ] Implement RAG pipeline via LangChain
+- [ ] Retrieve relevant documents from Chroma
+- [ ] Generate answers using OpenAI GPT-4o
+
+### Slack Integration
+- [ ] Handle Slack events/webhooks
+- [ ] Send answers to Slack
+- [ ] Collect user feedback in Slack
+
+### Human Escalation
+- [ ] Implement escalation logic 
+- [ ] Implement routing to real human
+
+### Feedback Collection (Supabase)
+- [ ] Store usage logs
+- [ ] Store feedback
+- [ ] Store and metadata in Supabase
+
+
+
 ## Tech Stack
 
 *   Python – Core logic and integrations
