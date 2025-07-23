@@ -5,3 +5,7 @@ pydantic>=2.0.0
 fastapi
 uvicorn
 python-dotenv
+langchain-community
+langchain-openai
+langchain-chroma
+tiktoken
