@@ -31,7 +31,7 @@ def get_rag_chain():
         A RAG chain.
     """
     vectorstore = Chroma(
-        persist_directory="chroma/",
+        persist_directory="chroma/chroma",
         embedding_function=get_embedding_function()
     )
     
