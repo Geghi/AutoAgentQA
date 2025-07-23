@@ -1,0 +1,122 @@
+## Questions for AutoAgent QA Testing
+
+This file contains a list of questions designed to test the accuracy and relevance of responses from the AutoAgent QA system, based on the provided internal company documents.
+
+**HR Policy - Vacation:**
+1.  How many vacation days do employees accrue in their first year?
+2.  What is the maximum number of unused vacation days that can be carried over to the next year?
+3.  Are unused vacation days paid out upon termination?
+4.  How far in advance should vacation requests be submitted?
+
+**IT Policy - Software Installation:**
+5.  Where should employees submit requests for new software?
+6.  What types of software are prohibited on company devices?
+7.  Can I install personal software on my company laptop?
+8.  How often should software be updated according to policy?
+
+**Onboarding Checklist - New Hire:**
+9.  What HR paperwork needs to be completed on Day 1?
+10. What is expected of a new hire in their first month regarding team projects?
+11. Who are the key contacts for IT support during onboarding?
+
+**Finance - Expense Reimbursement:**
+12. What is the deadline for submitting expense reports after an expense is incurred?
+13. What information must be included on a receipt for reimbursement?
+14. Are alcoholic beverages eligible for reimbursement?
+15. What are the consequences of fraudulent expense claims?
+
+**Marketing - Brand Guidelines:**
+16. What are the primary brand pillars of [Company Name]?
+17. What is the primary color code for the brand?
+18. What is the minimum font size for digital body text?
+19. What is the approved tone of voice for company communications?
+
+**Sales - Process Overview:**
+20. What is the first stage of the sales process?
+21. What does BANT stand for in the qualification stage?
+22. What happens after contract signing in the closing stage?
+23. What are the key metrics tracked in the sales process?
+
+**Customer Support - FAQ Common Issues:**
+24. How can a customer reset their password if they forgot it?
+25. What should a customer do if their account is locked?
+26. What are the available contact methods for customer support?
+27. Where can I find information about the return policy?
+
+**Legal - Data Privacy Policy:**
+28. What are the core principles of data processing according to the policy?
+29. What types of data are collected by the company?
+30. Can personal data be sold to third parties?
+31. How can an individual request a copy of their personal data?
+
+**Operations - Incident Response Plan:**
+32. What are the six phases of incident response?
+33. Who is the lead of the Incident Response Team (IRT)?
+34. What is the first step when detecting a security incident?
+35. What is the purpose of the "Post-Incident Activity" phase?
+
+**HR Policy - Code of Conduct:**
+36. What are the core principles outlined in the Employee Code of Conduct?
+37. Is harassment prohibited under the Code of Conduct?
+38. How should employees report suspected violations of the Code?
+39. What are the consequences of violating the Code of Conduct?
+
+**IT Troubleshooting - Network Connectivity:**
+40. What are the first two troubleshooting steps for network issues?
+41. How can I check my network adapter status on Windows?
+42. What command can be used to flush the DNS cache?
+43. When should I contact IT support for network issues?
+
+**HR Benefits - Health Insurance:**
+44. When are new hires eligible for health insurance benefits?
+45. What are the three types of health insurance plans offered?
+46. Is a PCP referral required for specialists in the PPO plan?
+47. What is a Qualifying Life Event (QLE) in relation to benefits enrollment?
+
+**Finance - Budget Request Form:**
+48. Who needs to approve a budget request form?
+49. What information is required in the "Justification" section?
+50. What categories of expenses are listed in the breakdown?
+51. What supporting documentation should be attached to the form?
+
+**Marketing - Social Media Policy:**
+52. Can employees use company logos on their personal social media accounts?
+53. What should an employee do if they are discussing company-related matters on social media?
+54. What types of content are explicitly prohibited on social media?
+55. Who should be contacted to report social media policy violations?
+
+**Sales - Commission Structure:**
+56. What is the commission rate for a sales representative who achieves $750,000 in annual revenue?
+57. How often are commissions calculated and paid?
+58. What is a "clawback clause" in this policy?
+59. What bonus is offered for achieving 120% of the annual sales quota?
+
+**Customer Support - Ticket Escalation:**
+60. What is the role of Tier 1 support?
+61. What information should be documented before escalating a ticket?
+62. When should an issue be escalated to Tier 3?
+63. What is the process for critical incident escalation?
+
+**Legal - Terms of Service:**
+64. What happens if a user does not agree with the Terms of Service?
+65. How will the company notify users of changes to the Terms?
+66. What are some prohibited activities when using the services?
+67. Who owns the intellectual property of the services?
+
+**Operations - Office Safety Guidelines:**
+68. Where are the first aid kits located?
+69. What should employees do in case of a fire?
+70. What is the policy regarding electrical outlets?
+71. How often should safety drills be conducted?
+
+**HR - Recruitment Process:**
+72. What is the first phase of the recruitment process?
+73. What is the purpose of the initial phone screen?
+74. How many professional references are typically checked for shortlisted candidates?
+75. What happens after an offer is accepted and background checks clear?
+
+**IT Helpdesk - Support Hours:**
+76. What is the recommended channel for non-urgent IT issues?
+77. What are the standard business hours for IT Helpdesk support?
+78. What information should be provided when contacting IT support?
+79. Where can employees check for updates on system outages?

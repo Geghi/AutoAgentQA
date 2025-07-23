@@ -67,5 +67,4 @@ def create_and_persist_chroma_index(chunks: List[Document], embedding_fn: Embedd
         embedding=embedding_fn,
         persist_directory="chroma/"
     )
-    chroma.persist()
     print(f"Added {len(chunks)} new chunks to the index.")

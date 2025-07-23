@@ -109,4 +109,5 @@ venv.bak/
 
 chroma/*
 
-data/processed_hashes.json
+data/*
+

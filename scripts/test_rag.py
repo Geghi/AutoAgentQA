@@ -1,5 +1,11 @@
+import os
+import sys
 import argparse
 from dotenv import load_dotenv
+
+# Add the project root to the Python path
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 from app.agents.rag import rag_pipeline
 
 load_dotenv()
