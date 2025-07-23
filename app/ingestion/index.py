@@ -5,6 +5,7 @@ from typing import List, Set, Tuple
 from langchain.docstore.document import Document
 from langchain_community.vectorstores import Chroma
 from langchain.embeddings.base import Embeddings
+from app.core.config import config
 
 PROCESSED_HASHES_FILE = "data/processed_hashes.json"
 
@@ -65,6 +66,6 @@ def create_and_persist_chroma_index(chunks: List[Document], embedding_fn: Embedd
     chroma = Chroma.from_documents(
         documents=chunks,
         embedding=embedding_fn,
-        persist_directory="chroma/chroma"
+        persist_directory=config.CHROMA_DB_PATH
     )
     print(f"Added {len(chunks)} new chunks to the index.")

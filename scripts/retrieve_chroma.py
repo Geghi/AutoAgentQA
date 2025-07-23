@@ -1,6 +1,7 @@
 # scripts/retrieve_chroma.py
 import argparse
 from typing import List, Optional
+from app.core.config import config
 
 from langchain_chroma import Chroma  # Updated import
 from langchain_core.documents import Document
@@ -17,7 +18,7 @@ def retrieve_chroma_elements(filter_query: Optional[str] = None) -> List[Documen
         A list of Document objects.
     """
     try:
-        db = Chroma(persist_directory="chroma/chroma")
+        db = Chroma(persist_directory=config.CHROMA_DB_PATH)
         results = db.get()
         documents = [Document(page_content=doc, metadata={}) for doc in results['documents']]
         if filter_query:

@@ -1,5 +1,6 @@
 from langchain_openai import OpenAIEmbeddings
 import os
+from app.core.config import config
 
 def get_embedding_function():
     """
@@ -8,4 +9,4 @@ def get_embedding_function():
     Returns:
         OpenAIEmbeddings: An instance of the OpenAIEmbeddings class.
     """
-    return OpenAIEmbeddings(model="text-embedding-3-small", api_key=os.getenv("OPENAI_API_KEY"))
+    return OpenAIEmbeddings(model=config.TEXT_EMBEDDING_MODEL, api_key=os.getenv("OPENAI_API_KEY"))

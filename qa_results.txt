@@ -1,0 +1,359 @@
+Question: How many vacation days do employees accrue in their first year?
+Answer: Employees accrue 15 vacation days in their first year, which is 1.25 days per month.
+
+Question: What is the maximum number of unused vacation days that can be carried over to the next year?
+Answer: The maximum number of unused vacation days that can be carried over to the next year is 5 days.
+
+Question: Are unused vacation days paid out upon termination?
+Answer: No, unused vacation days are not paid out upon termination of employment.
+
+Question: How far in advance should vacation requests be submitted?
+Answer: Vacation requests should be submitted through the HR portal at least two weeks in advance.
+
+Question: Where should employees submit requests for new software?
+Answer: Employees should submit requests for new software to the IT department for review and approval.
+
+Question: What types of software are prohibited on company devices?
+Answer: The following types of software are prohibited on company devices:
+
+1. Unauthorized peer-to-peer (P2P) file-sharing applications.
+2. Illegal or unlicensed software.
+3. Software known to contain malware, spyware, or viruses.
+4. Any software that violates company security policies or intellectual property rights.
+
+Question: Can I install personal software on my company laptop?
+Answer: No, personal software installations on company devices are strictly prohibited.
+
+Question: How often should software be updated according to policy?
+Answer: According to the policy, all software must be kept up-to-date with the latest security patches and versions. Automatic updates should be enabled where possible.
+
+Question: What HR paperwork needs to be completed on Day 1?
+Answer: On Day 1, the following HR paperwork needs to be completed:
+* I-9
+* W-4
+* Direct deposit
+
+Question: What is expected of a new hire in their first month regarding team projects?
+Answer: In their first month, a new hire is expected to begin contributing to team projects.
+
+Question: Who are the key contacts for IT support during onboarding?
+Answer: The key contact for IT support during onboarding is the IT Support team. You can reach them at [IT Support Contact/Email].
+
+Question: What is the deadline for submitting expense reports after an expense is incurred?
+Answer: The deadline for submitting expense reports is within 30 days of the expense being incurred.
+
+Question: What information must be included on a receipt for reimbursement?
+Answer: A receipt for reimbursement must include the following information:
+- Date of purchase
+- Vendor name
+- Itemized list of purchases
+- Total amount paid
+- Proof of payment (e.g., last four digits of card)
+
+Question: Are alcoholic beverages eligible for reimbursement?
+Answer: Alcoholic beverages are ineligible for reimbursement unless they are explicitly approved for client entertainment.
+
+Question: What are the consequences of fraudulent expense claims?
+Answer: The consequences of fraudulent expense claims include disciplinary action, up to and including termination of employment and legal action.
+
+Question: What are the primary brand pillars of [Company Name]?
+Answer: The primary brand pillars of [Company Name] are:
+
+1. **Innovation:** We are forward-thinking and embrace new technologies.
+2. **Reliability:** Our products/services are trustworthy and consistent.
+3. **Customer-Centricity:** Our customers are at the heart of everything we do.
+4. **Simplicity:** We strive for clarity and ease of use.
+
+Question: What is the primary color code for the brand?
+Answer: The primary color code for the brand is #007bff.
+
+Question: What is the minimum font size for digital body text?
+Answer: The minimum font size for digital body text is 14px.
+
+Question: What is the approved tone of voice for company communications?
+Answer: The approved tone of voice for company communications is professional, approachable, confident, and concise.
+
+Question: What is the first stage of the sales process?
+Answer: The first stage of the sales process is **Lead Generation**.
+
+Question: What does BANT stand for in the qualification stage?
+Answer: BANT stands for Budget, Authority, Need, and Timeline.
+
+Question: What happens after contract signing in the closing stage?
+Answer: After contract signing in the closing stage, the next activities include payment processing and handover to implementation/customer success. The goal is to secure the deal.
+
+Question: What are the key metrics tracked in the sales process?
+Answer: The key metrics tracked in the sales process are:
+
+* Conversion rates at each stage
+* Average sales cycle length
+* Win rate
+* Average deal size
+
+Question: How can a customer reset their password if they forgot it?
+Answer: A customer can reset their password by following these steps:
+1. Go to the login page and click "Forgot Password."
+2. Enter their registered email address.
+3. A password reset link will be sent to their email. They should follow the instructions in the email.
+4. If they don't receive the email, they should check their spam folder or contact support.
+
+Question: What should a customer do if their account is locked?
+Answer: If a customer's account is locked, they should:
+
+1. Wait 15 minutes and try to log in again.
+2. If the account is still locked, they should contact the support team with their username and registered email.
+
+Question: What are the available contact methods for customer support?
+Answer: The available contact methods for customer support are:
+
+1. **Live Chat:** Available on our website during business hours (Mon-Fri, 9 AM - 5 PM EST).
+2. **Email:** support@[companyname].com (Response within 24 hours).
+3. **Phone:** [Phone Number] (Mon-Fri, 9 AM - 5 PM EST).
+
+Question: Where can I find information about the return policy?
+Answer: You can find information about the return policy by referring to the full Return Policy document, which is available at the provided link in the customer support FAQ.
+
+Question: What are the core principles of data processing according to the policy?
+Answer: The core principles of data processing according to the policy are:
+
+1. **Lawfulness, Fairness, and Transparency:** Data is processed lawfully, fairly, and transparently.
+2. **Purpose Limitation:** Data is collected for specified, explicit, and legitimate purposes.
+3. **Data Minimization:** Only necessary data is collected.
+4. **Accuracy:** Data is kept accurate and up-to-date.
+5. **Storage Limitation:** Data is stored no longer than necessary.
+6. **Integrity and Confidentiality:** Data is processed securely.
+
+Question: What types of data are collected by the company?
+Answer: The company collects the following types of data:
+
+1. **Personal Identifiers:** Name, email address, phone number, postal address.
+2. **Technical Data:** IP address, browser type, operating system, usage data.
+3. **Financial Data:** Payment information (for customers).
+4. **Employment Data:** HR-related information (for employees).
+
+Question: Can personal data be sold to third parties?
+Answer: No, personal data will not be sold to third parties.
+
+Question: How can an individual request a copy of their personal data?
+Answer: An individual can request a copy of their personal data by exercising their **Right to Access**. To do this, they should contact the Data Protection Officer at privacy@[companyname].com.
+
+Question: What are the six phases of incident response?
+Answer: The six phases of incident response are:
+
+1. **Preparation**
+2. **Detection & Analysis**
+3. **Containment**
+4. **Eradication**
+5. **Recovery**
+6. **Post-Incident Activity**
+
+Question: Who is the lead of the Incident Response Team (IRT)?
+Answer: The lead of the Incident Response Team (IRT) is the Security Lead.
+
+Question: What is the first step when detecting a security incident?
+Answer: The first step when detecting a security incident is to monitor logs, alerts, and user reports, followed by an initial assessment of the incident's scope and severity.
+
+Question: What is the purpose of the "Post-Incident Activity" phase?
+Answer: The purpose of the "Post-Incident Activity" phase is to conduct a lessons learned review, create an incident report, update policies, and implement process improvements. The goal is to prevent similar incidents in the future.
+
+Question: What are the core principles outlined in the Employee Code of Conduct?
+Answer: The core principles outlined in the Employee Code of Conduct are:
+
+1. **Respect and Professionalism:**
+   - Treat all colleagues, customers, partners, and stakeholders with respect, dignity, and courtesy.
+   - Maintain a professional demeanor in all work-related interactions.
+   - Prohibit harassment, discrimination, and bullying of any kind.
+
+2. **Integrity and Honesty:**
+   - Act with honesty and integrity in all business dealings.
+   - Avoid conflicts of interest.
+   - Do not engage in fraudulent or deceptive practices.
+
+3. **Confidentiality:**
+   - Protect confidential company information, including trade secrets, customer data, and proprietary knowledge.
+   - Do not disclose confidential information to unauthorized individuals or outside the company.
+
+Question: Is harassment prohibited under the Code of Conduct?
+Answer: Yes, harassment is prohibited under the Code of Conduct. The Code establishes expectations for professional behavior and ethical conduct, which includes maintaining a respectful work environment.
+
+Question: How should employees report suspected violations of the Code?
+Answer: Employees are encouraged to report any suspected violations of the Code to their manager, HR, or through the anonymous ethics hotline.
+
+Question: What are the consequences of violating the Code of Conduct?
+Answer: The consequences of violating the Code of Conduct may include disciplinary action, up to and including termination of employment. Additionally, legal action may be pursued where appropriate.
+
+Question: What are the first two troubleshooting steps for network issues?
+Answer: The first two troubleshooting steps for network issues are:
+
+1. **Check Physical Connections:**
+   - Ensure the Ethernet cable is securely plugged into both the computer and the wall/router.
+   - If on Wi-Fi, ensure Wi-Fi is enabled on your device.
+   - Check if the router/modem lights are normal (power, internet, Wi-Fi indicators).
+
+2. **Restart Devices:**
+   - **Restart your computer:** A simple restart can often resolve temporary glitches.
+   - **Restart your router/modem:** Unplug the power cord for 30 seconds, then plug it back in. Wait 2-3 minutes for it to fully restart.
+
+Question: How can I check my network adapter status on Windows?
+Answer: To check your network adapter status on Windows, follow these steps:
+
+1. Go to **Network & Internet settings**.
+2. Click on **Network and Sharing Center**.
+3. Select **Change adapter options**.
+4. Ensure your network adapter is enabled.
+
+Question: What command can be used to flush the DNS cache?
+Answer: The command to flush the DNS cache is `ipconfig /flushdns`.
+
+Question: When should I contact IT support for network issues?
+Answer: You should contact IT support for network issues if:
+
+- You have followed all troubleshooting steps and the issue persists.
+- You suspect a hardware failure (e.g., faulty Ethernet port).
+- You are unable to access internal company resources despite having internet access.
+
+When contacting support, provide detailed information about the steps you've already taken and any error messages received.
+
+Question: When are new hires eligible for health insurance benefits?
+Answer: New hires are eligible for health insurance benefits starting on the first day of the month following their hire date.
+
+Question: What are the three types of health insurance plans offered?
+Answer: The three types of health insurance plans offered are:
+
+1. **PPO Plan (Preferred Provider Organization)**
+2. **HMO Plan (Health Maintenance Organization)**
+3. **HDHP with HSA (High Deductible Health Plan with Health Savings Account)**
+
+Question: Is a PCP referral required for specialists in the PPO plan?
+Answer: No, a PCP referral is not required to see specialists in the PPO plan.
+
+Question: What is a Qualifying Life Event (QLE) in relation to benefits enrollment?
+Answer: A Qualifying Life Event (QLE) is a significant life change that allows employees to make changes to their health insurance benefits outside of the annual open enrollment period. Examples of QLEs include marriage, the birth of a child, or loss of other coverage. Employees must notify HR within 30 days of the QLE to make these changes.
+
+Question: Who needs to approve a budget request form?
+Answer: A budget request form needs to be approved by the following individuals:
+
+1. Department Head
+2. Finance Department
+3. Executive Approval (if the request exceeds a specified threshold)
+
+Question: What information is required in the "Justification" section?
+Answer: In the "Justification" section, you need to provide a detailed justification for the requested funds, including how this aligns with departmental and company goals. Additionally, you should quantify benefits where possible, such as expected ROI, cost savings, or revenue generation.
+
+Question: What categories of expenses are listed in the breakdown?
+Answer: The categories of expenses listed in the breakdown are:
+
+1. Personnel - New hires, contractor fees, overtime
+2. Software/Tools - Licenses, subscriptions, new software
+3. Hardware - Computers, servers, specialized equipment
+
+Question: What supporting documentation should be attached to the form?
+Answer: You should attach any supporting documentation such as vendor quotes and project plans to the form.
+
+Question: Can employees use company logos on their personal social media accounts?
+Answer: No, employees cannot use company logos, trademarks, or branding on their personal accounts without explicit permission.
+
+Question: What should an employee do if they are discussing company-related matters on social media?
+Answer: If an employee is discussing company-related matters on social media, they should clearly identify themselves as an employee of the company. Additionally, if they have a personal opinion that differs from the company's stance, they should make it clear that they are speaking for themselves and not on behalf of the company.
+
+Question: What types of content are explicitly prohibited on social media?
+Answer: The types of content explicitly prohibited on social media include:
+
+- Hate speech, bullying, or harassment.
+- Confidential company information.
+- Defamatory statements about the company, colleagues, or competitors.
+- Illegal activities.
+
+Question: Who should be contacted to report social media policy violations?
+Answer: To report social media policy violations, you should contact your manager or HR.
+
+Question: What is the commission rate for a sales representative who achieves $750,000 in annual revenue?
+Answer: The commission rate for a sales representative who achieves $750,000 in annual revenue is 7%.
+
+Question: How often are commissions calculated and paid?
+Answer: Commissions are calculated monthly based on deals closed and invoiced within that month. Payments are disbursed on the [Day] of the following month.
+
+Question: What is a "clawback clause" in this policy?
+Answer: A "clawback clause" in this policy refers to a provision that allows the company to reclaim commission payments made to a sales representative if a customer requests a refund or cancels their purchase within a specified number of days after the deal closure. The corresponding commission paid will be deducted from the sales representative's future commission earnings.
+
+Question: What bonus is offered for achieving 120% of the annual sales quota?
+Answer: The bonus amount for achieving 120% of the annual sales quota is specified as a "Higher Bonus Amount," but the exact figure is not provided in the context.
+
+Question: What is the role of Tier 1 support?
+Answer: The role of Tier 1 support is to serve as the initial point of contact for customers. They handle common issues, provide basic troubleshooting, and answer frequently asked questions (FAQs). Their resolution goal is to resolve 70-80% of incoming tickets. If an issue requires specialized knowledge, advanced troubleshooting, or access to higher privileges, it is escalated to a higher tier.
+
+Question: What information should be documented before escalating a ticket?
+Answer: Before escalating a ticket, you should ensure the following information is documented:
+
+- Customer details and contact information.
+- Detailed description of the problem.
+- All troubleshooting steps already attempted.
+- Any error messages, screenshots, or logs.
+- Customer's desired outcome.
+
+Question: When should an issue be escalated to Tier 3?
+Answer: An issue should be escalated to Tier 3 when it involves product bugs, infrastructure issues, legal compliance, or high-level customer complaints. Additionally, it should be escalated if the agent determines that the issue cannot be resolved at their current tier, if the customer expresses extreme dissatisfaction or threatens to churn, or if the issue is a critical bug or system-wide outage.
+
+Question: What is the process for critical incident escalation?
+Answer: For critical incidents, such as major outages or data breaches, you should follow the separate "Incident Response Plan." This plan includes the immediate notification to the Incident Response Team (IRT).
+
+Question: What happens if a user does not agree with the Terms of Service?
+Answer: If a user does not agree with any part of the Terms of Service, they may not access or use the Services.
+
+Question: How will the company notify users of changes to the Terms?
+Answer: The company will notify users of any material changes to the Terms by posting the new Terms on the website or through other communication channels.
+
+Question: What are some prohibited activities when using the services?
+Answer: Some prohibited activities when using the services include:
+
+- Violating any applicable laws or regulations.
+- Infringing on intellectual property rights.
+- Transmitting harmful code (e.g., viruses, malware).
+- Engaging in any activity that interferes with the proper working of the services.
+
+Question: Who owns the intellectual property of the services?
+Answer: The intellectual property of the services is exclusively owned by [Company Name] or its licensors, as stated in the legal terms of service.
+
+Question: Where are the first aid kits located?
+Answer: The first aid kits are located at: [Locations of First Aid Kits].
+
+Question: What should employees do in case of a fire?
+Answer: In case of a fire, employees should activate the nearest fire alarm and evacuate immediately. They should not use elevators and should assemble at the designated muster point. Additionally, employees should know the location of fire extinguishers and how to use them if they are trained.
+
+Question: What is the policy regarding electrical outlets?
+Answer: The policy regarding electrical outlets states that you should not overload electrical outlets. Additionally, you must report frayed cords or damaged electrical equipment immediately and should not attempt to repair electrical equipment unless you are qualified.
+
+Question: How often should safety drills be conducted?
+Answer: Regular safety drills, such as fire drills, will be conducted, but the specific frequency is not mentioned in the guidelines.
+
+Question: What is the first phase of the recruitment process?
+Answer: The first phase of the recruitment process is **Job Requisition & Approval**.
+
+Question: What is the purpose of the initial phone screen?
+Answer: The purpose of the initial phone screen is to assess basic qualifications, cultural fit, and salary expectations of candidates.
+
+Question: How many professional references are typically checked for shortlisted candidates?
+Answer: Typically, 2-3 professional references are checked for shortlisted candidates.
+
+Question: What happens after an offer is accepted and background checks clear?
+Answer: After an offer is accepted and background checks clear, HR initiates the onboarding process. Information is then transferred to the Onboarding team for Day 1 preparations, ensuring a smooth transition for the new hire.
+
+Question: What is the recommended channel for non-urgent IT issues?
+Answer: The recommended channel for non-urgent IT issues is the Service Desk Portal. You can use it to submit new tickets, check ticket status, and access knowledge base articles.
+
+Question: What are the standard business hours for IT Helpdesk support?
+Answer: The standard business hours for IT Helpdesk support are Monday - Friday, 9:00 AM - 5:00 PM.
+
+Question: What information should be provided when contacting IT support?
+Answer: When contacting IT support, you should provide the following information:
+
+1. Your full name and department.
+2. A clear, concise description of the problem.
+3. Any error messages received.
+4. Steps you have already taken to troubleshoot.
+5. The urgency/impact of the issue.
+6. Your contact information (phone, email).
+
+Question: Where can employees check for updates on system outages?
+Answer: Employees can check for updates on system outages in the #it-announcements Slack channel or on the company intranet.
+

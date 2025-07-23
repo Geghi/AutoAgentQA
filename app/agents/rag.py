@@ -1,6 +1,7 @@
 from typing import List, Tuple
 from langchain_core.documents import Document
 import time
+from app.core.config import config
 from app.utils.logger import logger
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnablePassthrough, RunnableLambda
@@ -33,7 +34,7 @@ def get_rag_chain():
         A RAG chain.
     """
     vectorstore = Chroma(
-        persist_directory="chroma/chroma",
+        persist_directory=config.CHROMA_DB_PATH,
         embedding_function=get_embedding_function()
     )
     
