@@ -1,11 +1,17 @@
 import hashlib
 import json
 import os
+import sys
+
+# Add the project root to the Python path
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 from typing import List, Set, Tuple
 from langchain.docstore.document import Document
-from langchain_community.vectorstores import Chroma
+from langchain_chroma import Chroma
 from langchain.embeddings.base import Embeddings
 from app.core.config import config
+from app.ingestion.embeddings import get_embedding_function
 
 
 def get_processed_hashes() -> Set[str]:
@@ -68,3 +74,49 @@ def create_and_persist_chroma_index(chunks: List[Document], embedding_fn: Embedd
         persist_directory=config.CHROMA_DB_PATH
     )
     print(f"Added {len(chunks)} new chunks to the index.")
+
+def get_document_names() -> List[str]:
+    """
+    Retrieves a list of unique document names (sources) from the Chroma index.
+    """
+    embedding_fn = get_embedding_function()
+    chroma_client = Chroma(
+        persist_directory=config.CHROMA_DB_PATH,
+        embedding_function=embedding_fn
+    )
+    
+    # Retrieve all documents, including their metadata
+    results = chroma_client.get(include=['metadatas'])
+    
+    document_sources = set()
+    for metadata in results.get('metadatas', []):
+        if 'source' in metadata:
+            document_sources.add(metadata['source'])
+    return list(document_sources)
+
+async def delete_documents_by_name(document_names: List[str]) -> int:
+    """
+    Deletes documents from the Chroma index based on their source names.
+
+    Args:
+        document_names (List[str]): A list of document source names to delete.
+
+    Returns:
+        int: The number of chunks deleted.
+    """
+    embedding_fn = get_embedding_function()
+    chroma_client = Chroma(
+        persist_directory=config.CHROMA_DB_PATH,
+        embedding_function=embedding_fn
+    )
+    deleted_count = 0
+    for name in document_names:
+        # Find IDs of documents with the matching source
+        results = chroma_client.get(where={"source": name}, include=['ids'])
+        ids_to_delete = results.get('ids', [])
+        if ids_to_delete:
+            chroma_client.delete(ids=ids_to_delete)
+            deleted_count += len(ids_to_delete)
+            print(f"Deleted {len(ids_to_delete)} chunks for document: {name}")
+    return deleted_count
+
