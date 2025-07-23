@@ -1,8 +1,9 @@
 from langchain_community.document_loaders import DirectoryLoader, TextLoader
 from typing import List
 from langchain.docstore.document import Document
+from app.core.config import config
 
-def load_documents(path: str = "data/", glob: str = "**/*.txt") -> List[Document]:
+def load_documents(path: str = config.DOC_DATASET_PATH, glob: str = "**/*.txt") -> List[Document]:
     """
     Load documents from a directory.
 
@@ -13,6 +14,6 @@ def load_documents(path: str = "data/", glob: str = "**/*.txt") -> List[Document
     Returns:
         List[Document]: A list of loaded documents.
     """
-    loader = DirectoryLoader(path, glob=glob, loader_cls=TextLoader)
+    loader = DirectoryLoader(path, glob=glob, loader_cls=TextLoader, loader_kwargs={"encoding": "utf-8"})
     documents = loader.load()
     return documents

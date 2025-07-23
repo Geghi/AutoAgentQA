@@ -7,7 +7,10 @@ class Config:
     PROJECT_VERSION: str = "1.0.0"
     PROJECT_DESCRIPTION: str = "AI-powered helpdesk agent for internal company knowledge"
 
-    CHROMA_DB_PATH: str = "chroma/chroma"
+    DOC_SET_NAME: str = "world_bank_report" 
+    CHROMA_DB_PATH: str = f"chroma/{DOC_SET_NAME}_chroma_db"
+    DOC_DATASET_PATH: str = f"data/{DOC_SET_NAME}"
+    PROCESSED_HASHES_FILE: str = DOC_DATASET_PATH + "/processed_hashes.json"
     TEXT_EMBEDDING_MODEL: str = "text-embedding-3-small"
     CHAT_MODEL: str = "gpt-4.1-nano"
 
