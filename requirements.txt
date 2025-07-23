@@ -11,3 +11,4 @@ langchain-chroma
 tiktoken
 slack_bolt
 slack_sdk
+sentence-transformers
