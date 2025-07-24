@@ -120,7 +120,7 @@ def get_rag_chain():
     )
     return rag_chain
 
-def rag_pipeline(query: str) -> str:
+def rag_pipeline(query: str) -> dict:
     """
     Executes the RAG pipeline for a given query and returns the answer with groundings.
 
@@ -128,7 +128,7 @@ def rag_pipeline(query: str) -> str:
         query: The user's query.
 
     Returns:
-        A formatted string containing the generated answer and the source documents.
+        A dictionary containing the generated answer and a list of source documents.
     """
     start_time = time.time()
     rag_chain = get_rag_chain()
@@ -143,10 +143,12 @@ def rag_pipeline(query: str) -> str:
     if retrieved_docs:
         for doc, _ in retrieved_docs:
             source = doc.metadata.get('source', 'N/A')
-            groundings.append(f"- {source}")
+            groundings.append(source)
     
     # Use set to get unique sources and sort them
-    groundings_str = "\n".join(sorted(list(set(groundings))))
+    unique_groundings = sorted(list(set(groundings)))
 
-    final_output = f"{answer}\n\n---\nGroundings:\n{groundings_str}"
-    return final_output
+    return {
+        "answer": answer,
+        "groundings": unique_groundings
+    }

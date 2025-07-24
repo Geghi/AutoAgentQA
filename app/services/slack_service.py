@@ -18,6 +18,19 @@ class SlackService:
             logger.error(f"Error sending message to Slack: {e}", exc_info=True)
             raise
 
+    async def send_blocks(self, channel: str, blocks: list, text: str = "Assistant response"):
+        try:
+            response = await self.client.chat_postMessage(
+                channel=channel,
+                blocks=blocks,
+                text=text  # Fallback text for notifications
+            )
+            logger.info(f"Block message sent to {channel}: {response['ts']}")
+            return response
+        except Exception as e:
+            logger.error(f"Error sending block message to Slack: {e}", exc_info=True)
+            raise
+
     async def get_user_info(self, user_id: str):
         try:
             response = await self.client.users_info(user=user_id)
