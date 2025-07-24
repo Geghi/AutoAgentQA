@@ -110,4 +110,5 @@ venv.bak/
 chroma/*
 
 data/*
+!chroma/sample_dataset_chroma_db
 
