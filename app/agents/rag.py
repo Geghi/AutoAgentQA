@@ -63,6 +63,7 @@ def get_rag_chain():
         start_time = time.time()
 
         if config.SKIP_RERANKING:
+            logger.info(f"Retrieval (No Reranking) Started...")
             # Skip reranking, retrieve top 5 directly
             top_docs_with_scores = vectorstore.similarity_search_with_score(question, k=config.TOP_K_NO_RERANK)
             logger.info(f"Retrieval (no reranking) time: {time.time() - start_time:.4f} seconds")
@@ -70,6 +71,7 @@ def get_rag_chain():
                 print(f"Source: {doc.metadata.get('source', 'N/A')}, Score: {score:.4f}")
             return top_docs_with_scores
         else:
+            logger.info(f"Retrieval With Reranking Started...")
             # Load the reranker model
             reranker = load_reranker_model()
             # 1. Initial retrieval of a larger set (e.g., 20 documents)
@@ -81,6 +83,7 @@ def get_rag_chain():
             # Prepare pairs for reranking: (query, document_content)
             sentence_pairs = [[question, doc.page_content] for doc in initial_docs]
 
+            logger.info(f"Reranking Step Started...")
             # 2. Rerank the initial set
             # The reranker returns scores for each pair
             rerank_scores = reranker.predict(sentence_pairs)
@@ -95,7 +98,7 @@ def get_rag_chain():
             # Select the top N documents after reranking (e.g., top 5)
             top_n_reranked_docs_with_scores = docs_with_rerank_scores[:5]
 
-            logger.info(f"Retrieval and Reranking time: {time.time() - start_time:.4f} seconds")
+            logger.info(f"Retrieval and Reranking total time: {time.time() - start_time:.4f} seconds")
             for doc, score in top_n_reranked_docs_with_scores:
                 print(f"Source: {doc.metadata.get('source', 'N/A')}, Rerank Score: {score:.4f}")
 
