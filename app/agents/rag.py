@@ -9,12 +9,12 @@ from langchain_chroma import Chroma
 from app.ingestion.embeddings import get_embedding_function
 from app.prompts.chat_response_prompt import CHAT_RESPONSE_SYSTEM_PROMPT, CHAT_RESPONSE_USER_PROMPT
 from app.services.openai_service import get_chat_model
-from sentence_transformers import CrossEncoder
 
 # Global or cached reranker model (load once)
 reranker_model = None
 
 def load_reranker_model():
+    from sentence_transformers import CrossEncoder
     global reranker_model
     if reranker_model is None:
         logger.info(f"Loading {config.RERANKER_MODEL} model...")
