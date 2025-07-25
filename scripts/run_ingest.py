@@ -30,6 +30,8 @@ def main():
         print("No documents found to process.")
         return
 
+    print(f"Loaded {len(documents)} documents.")
+    
     # 2. Filter for new documents
     new_documents, new_hashes = filter_new_documents(documents)
     if not new_documents:

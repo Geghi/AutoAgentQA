@@ -7,7 +7,7 @@ class Config:
     PROJECT_VERSION: str = "1.0.0"
     PROJECT_DESCRIPTION: str = "AI-powered helpdesk agent for internal company knowledge"
 
-    DOC_SET_NAME: str = "italian_monetary_fund" 
+    DOC_SET_NAME: str = "db_anto" 
     # DOC_SET_NAME: str = "sample_dataset" 
     CHROMA_DB_PATH: str = f"chroma/{DOC_SET_NAME}_chroma_db"
     DOC_DATASET_PATH: str = f"data/{DOC_SET_NAME}"
