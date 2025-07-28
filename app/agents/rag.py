@@ -8,7 +8,15 @@ from langchain_core.runnables import RunnablePassthrough, RunnableLambda
 from langchain_chroma import Chroma
 from app.ingestion.embeddings import get_embedding_function
 from app.prompts.chat_response_prompt import CHAT_RESPONSE_SYSTEM_PROMPT, CHAT_RESPONSE_USER_PROMPT
-from app.services.openai_service import get_chat_model
+from app.services.openai_service import get_chat_model, calculate_and_log_cost
+from langchain_core.output_parsers import JsonOutputParser
+from langchain_core.pydantic_v1 import BaseModel, Field
+from langchain_community.callbacks import get_openai_callback
+
+# Define the Pydantic model for the expected JSON output
+class RagResponse(BaseModel):
+    answer: str = Field(description="The answer to the user's question.")
+    sources: List[str] = Field(description="A list of sources used to generate the answer.")
 
 # Global or cached reranker model (load once)
 reranker_model = None
@@ -22,20 +30,15 @@ def load_reranker_model():
         logger.info(f"{config.RERANKER_MODEL} model loaded.")
     return reranker_model
 
-def format_docs_with_scores(docs_with_scores: List[Tuple[Document, float]]) -> str:
+def format_docs_for_llm(docs_with_scores: List[Tuple[Document, float]]) -> str:
     """
-    Formats a list of documents with their similarity scores into a single string.
-
-    Args:
-        docs_with_scores: A list of tuples, each containing a Document object and its similarity score.
-
-    Returns:
-        A string containing the formatted documents with scores.
+    Formats a list of documents with their similarity scores into a single string for the LLM.
+    Includes source information for the LLM to use.
     """
     formatted_strings = []
-    for doc, score in docs_with_scores:
+    for i, (doc, score) in enumerate(docs_with_scores):
         source = doc.metadata.get('source', 'N/A')
-        formatted_strings.append(f"Content from {source}:\n{doc.page_content}")
+        formatted_strings.append(f"Source {source}:\n{doc.page_content}")
     return "\n\n".join(formatted_strings)
 
 def get_rag_chain():
@@ -55,6 +58,8 @@ def get_rag_chain():
     )
     
     llm = get_chat_model()
+    # Ensure the LLM is configured to output JSON
+    llm_with_json_output = llm.with_structured_output(RagResponse)
     
     def retrieve_and_rerank(question: str) -> List[Tuple[Document, float]]:
         """
@@ -108,10 +113,10 @@ def get_rag_chain():
 
     rag_chain_from_docs = (
         RunnablePassthrough.assign(
-            context=(lambda x: format_docs_with_scores(x["retrieved_docs"]))
+            context=(lambda x: format_docs_for_llm(x["retrieved_docs"]))
         )
         | prompt
-        | llm
+        | llm_with_json_output # Use the LLM configured for JSON output
     )
 
     rag_chain = (
@@ -119,7 +124,7 @@ def get_rag_chain():
             "retrieved_docs": retriever,
             "question": RunnablePassthrough(),
         }
-        | RunnablePassthrough.assign(answer=rag_chain_from_docs)
+        | RunnablePassthrough.assign(parsed_output=rag_chain_from_docs)
     )
     return rag_chain
 
@@ -135,20 +140,26 @@ def rag_pipeline(query: str) -> dict:
     """
     start_time = time.time()
     rag_chain = get_rag_chain()
-    result = rag_chain.invoke(query)
+    
+    with get_openai_callback() as cb:
+        result = rag_chain.invoke(query)
+        calculate_and_log_cost(cb)
+    
     logger.info(f"Total RAG pipeline time: {time.time() - start_time:.4f} seconds")
     
-    answer = result["answer"].content
+    # The LLM now returns a RagResponse object directly
+    parsed_output = result.get('parsed_output')
     
-    retrieved_docs = result.get('retrieved_docs', [])
-
-    groundings = []
-    if retrieved_docs:
-        for doc, _ in retrieved_docs:
-            source = doc.metadata.get('source', 'N/A')
-            groundings.append(source)
+    if isinstance(parsed_output, RagResponse):
+        answer = parsed_output.answer
+        groundings = parsed_output.sources
+    else:
+        # Fallback if parsing fails or LLM doesn't return expected format
+        logger.error(f"LLM did not return expected RagResponse format. Raw output: {parsed_output}")
+        answer = "Mi dispiace, non ho trovato questa informazione."
+        groundings = []
     
-    # Use set to get unique sources and sort them
+    # Ensure groundings are unique and sorted
     unique_groundings = sorted(list(set(groundings)))
 
     return {

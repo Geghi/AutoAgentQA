@@ -15,6 +15,15 @@ CHAT_RESPONSE_SYSTEM_PROMPT = SystemMessagePromptTemplate.from_template(
 
     If the answer cannot be found in the context, respond with:
     "Mi dispiace, non ho trovato questa informazione."
+
+    Your response MUST be a JSON object with two keys: "answer" (string) and "sources" (array of strings).
+    Example:
+    ```json
+    {{
+      "answer": "The answer to your question is...",
+      "sources": ["path1", "path2"]
+    }}
+    ```
     """
 )
 
