@@ -31,6 +31,7 @@ def load_documents(path: str = config.DOC_DATASET_PATH, glob: str = "**/*") -> L
         )
         loaded_documents.extend(loader.load())
 
+   
     # Group documents by source and combine content for PDFs
     combined_documents = {}
     for doc in loaded_documents:
@@ -43,6 +44,11 @@ def load_documents(path: str = config.DOC_DATASET_PATH, glob: str = "**/*") -> L
                 }
             combined_documents[source]['page_content'].append(doc.page_content)
 
+    # for src, doc in combined_documents.items():
+    #     print("SOURCE:", doc["metadata"].get('source'))
+    #     print(doc["page_content"][0][:100])
+    #return
+    
     final_documents = []
     for source, data in combined_documents.items():
         full_content = "\n".join(data['page_content'])

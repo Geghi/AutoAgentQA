@@ -14,7 +14,7 @@ CHAT_RESPONSE_SYSTEM_PROMPT = SystemMessagePromptTemplate.from_template(
     {context}
 
     If the answer cannot be found in the context, respond with:
-    "I'm sorry, I couldn't find that information in the current documentation."
+    "Mi dispiace, non ho trovato questa informazione."
     """
 )
 
