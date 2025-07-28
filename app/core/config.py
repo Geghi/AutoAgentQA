@@ -26,4 +26,8 @@ class Config:
     TOP_K_NO_RERANK: int = 5
     TOP_K_WITH_RERANK: int = 20
 
+    ALLOWED_ORIGINS: list[str] = [
+       "*"
+    ]
+
 config = Config()
